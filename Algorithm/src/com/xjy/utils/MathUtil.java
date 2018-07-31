@@ -3,7 +3,7 @@ package com.xjy.utils;
 import org.junit.Test;
 
 public class MathUtil {
-	//¾ø¶ÔÖµ
+	//ç»å¯¹å€¼
 	public static double abs(double b) {
 		if(b < 0.0) {return -b;}
 		else {return b;}
@@ -13,13 +13,13 @@ public class MathUtil {
 		else {return b;}
 	}
 	
-	//Å·¼¸ÀïµÃÇó×î´ó¹«Ô¼Êı
+	//æ¬§å‡ é‡Œå¾—æ±‚æœ€å¤§å…¬çº¦æ•°
 	public static int gcd(int p , int q) {
 		if(q == 0) {return p;}
 		int r = p % q;
 		return gcd(q , r);
 	}
-	//ÅĞ¶ÏÒ»¸öÊıÊÇ·ñÎªËØÊı
+	//åˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯å¦ä¸ºç´ æ•°
 	public static boolean isPrime(int N) {
 		if(N < 2) {return false;}
 		for(int i = 2 ; i * i <= N ; i++) {
@@ -28,7 +28,7 @@ public class MathUtil {
 		return true;
 	}
 	
-	//Å£¶Ùµü´ú·¨Çó¿ª·½£º X(n+1) = X(n) - f(X(n))/f'(X(n)) --> X(n+1) = X(n)-(X(n)*X(n)-k)/2X(n)
+	//ç‰›é¡¿è¿­ä»£æ³•æ±‚å¼€æ–¹ï¼š X(n+1) = X(n) - f(X(n))/f'(X(n)) --> X(n+1) = X(n)-(X(n)*X(n)-k)/2X(n)
 	//--> X(n+1) = (X(n)*X(n)+k)/2Xn
 	public static double sqrt(double k) {
 		if(k < 0) {return Double.NaN;}

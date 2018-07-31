@@ -1,17 +1,17 @@
 package com.xjy.dfs;
 /**
- * Çë¿¼ÂÇÒ»¸ö±»¿Õ¸ñ·Ö¸ôµÄ£¬ÓÉ1µ½NµÄÕûÊý×é³ÉµÄµÝÔöÊýÁÐ£º1 2 3 ... N¡£ÏÖÔÚÇëÔÚÊýÁÐÖÐ²åÈë±íÊ¾¼ÓµÄ¡°+¡±£¬»òÕß±íÊ¾¼õ¡°-¡±£¬Òà»òÕß±íÊ¾¿Õ°×µÄ¡° ¡±(ÀýÈç1-2 3¾ÍµÈÓÚ1-23)£¬À´½«Ã¿Ò»¶ÔÊý×Ö×éºÏ³ÉÒ»¸ö±í´ïÊ½£¨µÚÒ»¸öÊý×ÖÇ°ÎÞ¿Õ¸ñ£©¡£
-¼ÆËã¸Ã±í´ïÊ½µÄ½á¹û²¢ÅÐ¶ÏÆäÖµÊÇ·ñÎª0¡£ÇëÄãÐ´Ò»¸ö³ÌÐòÕÒ³öËùÓÐ²úÉúºÍÎªÁãµÄ³¤¶ÈÎªNµÄÊýÁÐ¡£
+ * è¯·è€ƒè™‘ä¸€ä¸ªè¢«ç©ºæ ¼åˆ†éš”çš„ï¼Œç”±1åˆ°Nçš„æ•´æ•°ç»„æˆçš„é€’å¢žæ•°åˆ—ï¼š1 2 3 ... Nã€‚çŽ°åœ¨è¯·åœ¨æ•°åˆ—ä¸­æ’å…¥è¡¨ç¤ºåŠ çš„â€œ+â€ï¼Œæˆ–è€…è¡¨ç¤ºå‡â€œ-â€ï¼Œäº¦æˆ–è€…è¡¨ç¤ºç©ºç™½çš„â€œ â€(ä¾‹å¦‚1-2 3å°±ç­‰äºŽ1-23)ï¼Œæ¥å°†æ¯ä¸€å¯¹æ•°å­—ç»„åˆæˆä¸€ä¸ªè¡¨è¾¾å¼ï¼ˆç¬¬ä¸€ä¸ªæ•°å­—å‰æ— ç©ºæ ¼ï¼‰ã€‚
+è®¡ç®—è¯¥è¡¨è¾¾å¼çš„ç»“æžœå¹¶åˆ¤æ–­å…¶å€¼æ˜¯å¦ä¸º0ã€‚è¯·ä½ å†™ä¸€ä¸ªç¨‹åºæ‰¾å‡ºæ‰€æœ‰äº§ç”Ÿå’Œä¸ºé›¶çš„é•¿åº¦ä¸ºNçš„æ•°åˆ—ã€‚
 
-ÊäÈëÎªÒ»ÐÐ£¬°üº¬Ò»¸öÕûÊýN£¨3¡ÜN¡Ü9£©¡£
+è¾“å…¥ä¸ºä¸€è¡Œï¼ŒåŒ…å«ä¸€ä¸ªæ•´æ•°Nï¼ˆ3â‰¤Nâ‰¤9ï¼‰ã€‚
 
-Êä³öÎªËùÓÐÔÚÃ¿¶ÔÊý×Ö¼ä²åÈë¡°+¡±, ¡°-¡±, »ò ¡° ¡±ºóÄÜµÃµ½ºÍÎªÁãµÄÊýÁÐ£¬²¢°´ÕÕ×Öµä£¨ASCIIÂë£©ÐòÅÅÁÐ¡£
+è¾“å‡ºä¸ºæ‰€æœ‰åœ¨æ¯å¯¹æ•°å­—é—´æ’å…¥â€œ+â€, â€œ-â€, æˆ– â€œ â€åŽèƒ½å¾—åˆ°å’Œä¸ºé›¶çš„æ•°åˆ—ï¼Œå¹¶æŒ‰ç…§å­—å…¸ï¼ˆASCIIç ï¼‰åºæŽ’åˆ—ã€‚
 
-ÑùÀýÊäÈë
+æ ·ä¾‹è¾“å…¥
 
 7
 
-ÑùÀýÊä³ö
+æ ·ä¾‹è¾“å‡º
 
 1+2-3+4-5-6+7
 1+2-3-4+5+6-7
@@ -43,12 +43,12 @@ public class CalculateExpression{
         if(i == n){
            String tempRes = String.valueOf(arrs);
            if(calculate(tempRes) == 0){
-        	   //Èç¹û½á¹û·ûºÏÒªÇó£¬¼Óµ½TreeSetÖÐ¿ÉÒÔ×Ô¶¯°´ASCIIÂëÅÅÐò
+        	   //å¦‚æžœç»“æžœç¬¦åˆè¦æ±‚ï¼ŒåŠ åˆ°TreeSetä¸­å¯ä»¥è‡ªåŠ¨æŒ‰ASCIIç æŽ’åº
                results.add(tempRes);     
            } 
            return;
         }
-        //Ã¿¸ö¿ÕµÄ·ûºÅÎ»ÓÐÈýÖÖ¿ÉÄÜ
+        //æ¯ä¸ªç©ºçš„ç¬¦å·ä½æœ‰ä¸‰ç§å¯èƒ½
         arrs[2 * i - 1] = '+';
         dfs(i+1);
         arrs[2 * i - 1] = '-';
@@ -56,10 +56,10 @@ public class CalculateExpression{
         arrs[2 * i - 1] = ' ';
         dfs(i+1);
     }
-    //¼ÆËãÒ»¸ö×Ö·û´®±í´ïÊ½µÄÖµ£¨ÕâÀïÖ»°üº¬¼Ó¼õ£©
+    //è®¡ç®—ä¸€ä¸ªå­—ç¬¦ä¸²è¡¨è¾¾å¼çš„å€¼ï¼ˆè¿™é‡ŒåªåŒ…å«åŠ å‡ï¼‰
     public static int calculate(String expr) {
     	
-    	//½¨Á¢¶ÑÕ»¼ÇÂ¼Ã¿Ò»²½¼ÆËãµÄ½á¹û
+    	//å»ºç«‹å †æ ˆè®°å½•æ¯ä¸€æ­¥è®¡ç®—çš„ç»“æžœ
 		Stack<Integer> stc = new Stack<Integer>();
 		expr = expr.replaceAll(" ","");
 		String[] nums = expr.split("(\\+|\\-)");
@@ -71,7 +71,7 @@ public class CalculateExpression{
 				stc.push(Integer.parseInt(nums[i]));
 			}else {
 				int a = stc.pop();
-				//Ñ°ÕÒÏÂÒ»¸ö·ûºÅ
+				//å¯»æ‰¾ä¸‹ä¸€ä¸ªç¬¦å·
 				matcher.find();
 				if(matcher.group().equals("+")) {
 					stc.push(a + Integer.parseInt(nums[i]));

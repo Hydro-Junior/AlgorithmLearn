@@ -1,18 +1,18 @@
 package com.xjy.dfs;
 
 /**
- * ÐÇ×ê²É¼¯£¨´ËÌâ³ýÁË±©Á¦ÉîËÑÖ®ÍâËÆºõÓÐ¸üºÃµØ½â·¨£¬¼ÆËâ¿ÍÉÏÖ»Í¨¹ýÁË²âÊÔÓÃÀý£©
- * ÌÚÑ¶µÄÔöÖµ·þÎñºÜ¶à£¬ÓÐºì×ê¡¢»Æ×ê¡¢ÂÌ×êµÈ¡£²úÆ·¾­ÀíÁúÁúÕýÔÚ×¼±¸ÎªÐÂ²úÆ·ÍÆ³öÒ»ÖÖ¡°ÐÇ×ê¡±£¬×êÉÏ¿ÉÒÔÓÐ²»Í¬µÄÐÇÊý¡£
- * ÏÖÔÚÓÐ N ¸ö¡°ÐÇ×ê¡±£¬µÚ i ¸ö¡°ÐÇ×ê¡±µÄÐÇÊýÎª Si£¬¼Û¸ñÊÇ Wi£¬µÃµ½ËüÐèÒª¸¶³öµÄÊ±¼äÎª Ci¡£ÏÖÔÚÄãÓÐ M ¿éÇ®¡£
- * ÇóÔÚ¸ø¶¨Ç®ÊýµÄ·¶Î§ÄÚ£¬×îÉÙÐèÒª¶à³¤Ê±¼ä£¬¿ÉÒÔµÃµ½ 7 ¸öÐÇÊý²»Í¬µÄ¡°ÐÇ×ê¡±¡£
+ * æ˜Ÿé’»é‡‡é›†ï¼ˆæ­¤é¢˜é™¤äº†æš´åŠ›æ·±æœä¹‹å¤–ä¼¼ä¹Žæœ‰æ›´å¥½åœ°è§£æ³•ï¼Œè®¡è’œå®¢ä¸Šåªé€šè¿‡äº†æµ‹è¯•ç”¨ä¾‹ï¼‰
+ * è…¾è®¯çš„å¢žå€¼æœåŠ¡å¾ˆå¤šï¼Œæœ‰çº¢é’»ã€é»„é’»ã€ç»¿é’»ç­‰ã€‚äº§å“ç»ç†é¾™é¾™æ­£åœ¨å‡†å¤‡ä¸ºæ–°äº§å“æŽ¨å‡ºä¸€ç§â€œæ˜Ÿé’»â€ï¼Œé’»ä¸Šå¯ä»¥æœ‰ä¸åŒçš„æ˜Ÿæ•°ã€‚
+ * çŽ°åœ¨æœ‰ N ä¸ªâ€œæ˜Ÿé’»â€ï¼Œç¬¬ i ä¸ªâ€œæ˜Ÿé’»â€çš„æ˜Ÿæ•°ä¸º Siï¼Œä»·æ ¼æ˜¯ Wiï¼Œå¾—åˆ°å®ƒéœ€è¦ä»˜å‡ºçš„æ—¶é—´ä¸º Ciã€‚çŽ°åœ¨ä½ æœ‰ M å—é’±ã€‚
+ * æ±‚åœ¨ç»™å®šé’±æ•°çš„èŒƒå›´å†…ï¼Œæœ€å°‘éœ€è¦å¤šé•¿æ—¶é—´ï¼Œå¯ä»¥å¾—åˆ° 7 ä¸ªæ˜Ÿæ•°ä¸åŒçš„â€œæ˜Ÿé’»â€ã€‚
 
-ÊäÈë¸ñÊ½
+è¾“å…¥æ ¼å¼
 
-µÚÒ»ÐÐÊäÈëÒ»¸öÕûÊý T£¨1 ¡Ü T ¡Ü 20£©£¬±íÊ¾Êý¾Ý×éÊý¡£
+ç¬¬ä¸€è¡Œè¾“å…¥ä¸€ä¸ªæ•´æ•° Tï¼ˆ1 â‰¤ T â‰¤ 20ï¼‰ï¼Œè¡¨ç¤ºæ•°æ®ç»„æ•°ã€‚
 
-Ã¿×éÊý¾ÝµÄµÚÒ»ÐÐÊäÈëÁ½¸öÕûÊý N£¨1 ¡Ü N ¡Ü 100£©ºÍ M£¨1 ¡Ü M ¡Ü 109£©¡£
+æ¯ç»„æ•°æ®çš„ç¬¬ä¸€è¡Œè¾“å…¥ä¸¤ä¸ªæ•´æ•° Nï¼ˆ1 â‰¤ N â‰¤ 100ï¼‰å’Œ Mï¼ˆ1 â‰¤ M â‰¤ 109ï¼‰ã€‚
 
-½ÓÏÂÀ´µÄ N ÐÐ£¬Ã¿ÐÐÈý¸öÕýÕûÊý Si, Wi, Ci£¨1 ¡Ü Si, Wi, Ci ¡Ü 109£©¡£
+æŽ¥ä¸‹æ¥çš„ N è¡Œï¼Œæ¯è¡Œä¸‰ä¸ªæ­£æ•´æ•° Si, Wi, Ciï¼ˆ1 â‰¤ Si, Wi, Ci â‰¤ 109ï¼‰ã€‚
 3
 8 8
 1 1 2
@@ -40,27 +40,27 @@ package com.xjy.dfs;
 3 1 1
 4 1 1
 
-Êä³ö¸ñÊ½
+è¾“å‡ºæ ¼å¼
 
-Êä³öÒ»¸öÕûÊý±íÊ¾×îÉÙÐèÒª¶àÉÙÊ±¼ä£¬Èç¹ûÎÞ½âÔòÊä³ö -1¡£
+è¾“å‡ºä¸€ä¸ªæ•´æ•°è¡¨ç¤ºæœ€å°‘éœ€è¦å¤šå°‘æ—¶é—´ï¼Œå¦‚æžœæ— è§£åˆ™è¾“å‡º -1ã€‚
  */
 import java.util.*;
 public class CollectDiamonds{
-    static int[] minT; //¼ÇÂ¼Ã¿×éÄ¿Ç°ÎªÖ¹×îÓÅµÄ½â
-    static int[] tempSumT; //¼ÇÂ¼µ±Ç°Ëù»¨µÄ×ÜÊ±¼ä
-    static int[] count; //¼ÇÂ¼µ±Ç°²É¼¯×êÊ¯µÄ¸öÊý
-    static int[] m;   //Ã¿×éÊÖÍ·µÄÇ®
-    static int[] n;   //Ã¿×éµÄÐÇ×ê×Ü¸öÊý
-    static int[] fee; //¼ÇÂ¼µ±Ç°Ëù»¨·ÑÓÃ
-    static boolean[] solved; //±ê¼ÇÕâ×éÎÊÌâÊÇ·ñÓÐ½â
-    static int[][] S; //µãÊý
-    static int[][] W; //¼Û¸ñ
-    static int[][] C; //Ê±¼ä´ú¼Û
-    static int[][] had; //±ê¼ÇÊÇ·ñÒÑÓÐÕâ¸öÐÇ×ê
-    static int[][] book;//±ê¼ÇÕâ×éÊÇ·ñÔÚÑ¡ÔñÄÚ
+    static int[] minT; //è®°å½•æ¯ç»„ç›®å‰ä¸ºæ­¢æœ€ä¼˜çš„è§£
+    static int[] tempSumT; //è®°å½•å½“å‰æ‰€èŠ±çš„æ€»æ—¶é—´
+    static int[] count; //è®°å½•å½“å‰é‡‡é›†é’»çŸ³çš„ä¸ªæ•°
+    static int[] m;   //æ¯ç»„æ‰‹å¤´çš„é’±
+    static int[] n;   //æ¯ç»„çš„æ˜Ÿé’»æ€»ä¸ªæ•°
+    static int[] fee; //è®°å½•å½“å‰æ‰€èŠ±è´¹ç”¨
+    static boolean[] solved; //æ ‡è®°è¿™ç»„é—®é¢˜æ˜¯å¦æœ‰è§£
+    static int[][] S; //ç‚¹æ•°
+    static int[][] W; //ä»·æ ¼
+    static int[][] C; //æ—¶é—´ä»£ä»·
+    static int[][] had; //æ ‡è®°æ˜¯å¦å·²æœ‰è¿™ä¸ªæ˜Ÿé’»
+    static int[][] book;//æ ‡è®°è¿™ç»„æ˜¯å¦åœ¨é€‰æ‹©å†…
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int gs = sc.nextInt();//Êý¾Ý×éÊý
+        int gs = sc.nextInt();//æ•°æ®ç»„æ•°
         minT = new int[gs];
         for(int k = 0 ; k < gs; k++){
             minT[k] = (int) 1e11;
@@ -115,7 +115,7 @@ public class CollectDiamonds{
             return;
         }
         for(int j = 0 ; j < n[k]; j++){
-        	//Ë¼¿¼£ºÒÔÏÂ·½·¨Ïàµ±ÓÚ±©Á¦ËÑË÷£¡ÕâÀïµÄhadºÍbookÄÜ·ñÉáÆúÒ»¸ö£¿»òÕßËµÈçºÎµ÷Õû(¼ôÖ¦)µÃµ½¸üÓÅ»¯µÄ·½°¸£¿
+        	//æ€è€ƒï¼šä»¥ä¸‹æ–¹æ³•ç›¸å½“äºŽæš´åŠ›æœç´¢ï¼è¿™é‡Œçš„hadå’Œbookèƒ½å¦èˆå¼ƒä¸€ä¸ªï¼Ÿæˆ–è€…è¯´å¦‚ä½•è°ƒæ•´(å‰ªæž)å¾—åˆ°æ›´ä¼˜åŒ–çš„æ–¹æ¡ˆï¼Ÿ
             if(had[k][S[k][j]] == 0 && book[k][j] == 0){
                 count[k] ++;
                 fee[k] += W[k][j];

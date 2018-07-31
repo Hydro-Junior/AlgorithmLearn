@@ -4,7 +4,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
- * Ë«Á´±íÊµÏÖMyLinkedList
+ * åŒé“¾è¡¨å®ç°MyLinkedList
  * @author Mr.Xu
  *
  * @param <T>

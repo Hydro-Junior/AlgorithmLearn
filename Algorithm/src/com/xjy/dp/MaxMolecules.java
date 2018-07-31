@@ -5,11 +5,11 @@ import org.junit.Test;
 /**
  * 
  * @author Mr.Xu
- *ÊäÈë4¸öÊı±íÊ¾·Ö×ÓµÄÖÊÁ¿£¬È»ºóÊäÈë»¯ºÏÎïµÄÖÊÁ¿
- *¸Ã»¯ºÏÎï×î¶à¿ÉÓÉ¶àÉÙ·Ö×Ó×é³É£¬·µ»Ø·Ö×ÓÊı
+ *è¾“å…¥4ä¸ªæ•°è¡¨ç¤ºåˆ†å­çš„è´¨é‡ï¼Œç„¶åè¾“å…¥åŒ–åˆç‰©çš„è´¨é‡
+ *è¯¥åŒ–åˆç‰©æœ€å¤šå¯ç”±å¤šå°‘åˆ†å­ç»„æˆï¼Œè¿”å›åˆ†å­æ•°
  */
 public class MaxMolecules {
-	//1.×Ô¶¥ÏòÏÂµİ¹é½â¾ö£¨ÕÒµ½×ÓÎÊÌâÊÇ¹Ø¼ü£©£¬µ«ÊÇÕâÑùÑ­»·´ÎÊıºÜ¶à
+	//1.è‡ªé¡¶å‘ä¸‹é€’å½’è§£å†³ï¼ˆæ‰¾åˆ°å­é—®é¢˜æ˜¯å…³é”®ï¼‰ï¼Œä½†æ˜¯è¿™æ ·å¾ªç¯æ¬¡æ•°å¾ˆå¤š
 	public static int max(int a , int b) {
 		return a >= b ? a:b; 
 	}
@@ -27,7 +27,7 @@ public class MaxMolecules {
 		}
 		return q;		
 	}
-	//2.¶¯Ì¬¹æ»®£º´ø±¸ÍüµÄ×Ô¶¥ÏòÏÂ
+	//2.åŠ¨æ€è§„åˆ’ï¼šå¸¦å¤‡å¿˜çš„è‡ªé¡¶å‘ä¸‹
 	private static int[] r = new int[10000];
 	static{
 		for(int i = 0 ; i < r.length ; i++) {
@@ -52,7 +52,7 @@ public class MaxMolecules {
 		r[massX] = q;
 		return q;		
 	}
-	//3.¶¯Ì¬¹æ»®£º×Ôµ×ÏòÉÏ
+	//3.åŠ¨æ€è§„åˆ’ï¼šè‡ªåº•å‘ä¸Š
 	public static int findMaxMolecules3(int massA , int massB , int massC, int massD , int massX) {
 		r[0] = 0;
 		int q ;
@@ -65,7 +65,7 @@ public class MaxMolecules {
 			r[j] = q;
 		}
 		for(int j = 1 ; j <= massX ; j ++) {
-			System.out.println(r[j]); //Êä³öËùÓĞ½á¹û£¬¸ºÊı±íÊ¾¸Ã»¯ºÏÎïµÄÖÊÁ¿²»¿ÉÄÜÓÉÌá¹©µÄ¼¸ÖÖ·Ö×Ó×é³Éb
+			System.out.println(r[j]); //è¾“å‡ºæ‰€æœ‰ç»“æœï¼Œè´Ÿæ•°è¡¨ç¤ºè¯¥åŒ–åˆç‰©çš„è´¨é‡ä¸å¯èƒ½ç”±æä¾›çš„å‡ ç§åˆ†å­ç»„æˆb
 		}
 		return r[massX];
 	}

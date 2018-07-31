@@ -30,7 +30,7 @@ public class MyStack <E>{
 	public E top() {
 		return this.top == -1 ? null :(E)this.element[this.top];
 	}
-	//popÒ²¿É¶¯Ì¬µ÷ÕûÊı×é´óĞ¡£¬ÕâÀïÎª¼òµ¥Æğ¼ûÃ»ÓĞÊ¹ÓÃ
+	//popä¹Ÿå¯åŠ¨æ€è°ƒæ•´æ•°ç»„å¤§å°ï¼Œè¿™é‡Œä¸ºç®€å•èµ·è§æ²¡æœ‰ä½¿ç”¨
 	public E pop(){
 		return this.top == -1 ? null : (E)this.element[this.top --];
 	}

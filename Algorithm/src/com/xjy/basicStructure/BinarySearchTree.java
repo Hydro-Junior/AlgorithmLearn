@@ -54,7 +54,7 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 		}
 		return findMin(t.left);
 	}
-	//³¢ÊÔĞ´µÄremoveMin·½·¨£¬Î´²âÊÔ
+	//å°è¯•å†™çš„removeMinæ–¹æ³•ï¼Œæœªæµ‹è¯•
 	private BinaryNode<T> removeMin(BinaryNode<T> t){
 		if(t == null) {
 			return null;
@@ -74,7 +74,7 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 		return findMax(root).element;
 	}
 	public BinaryNode<T> findMax(BinaryNode<T> t){
-		//·Çµİ¹éÊµÏÖ
+		//éé€’å½’å®ç°
 		if(t != null)
 			while(t.right != null) {
 				t = t.right;
@@ -84,7 +84,7 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 	public void insert(T x) {
 		root = insert(x,root);
 	}
-	//µİ¹éÊµÏÖ²åÈë·½·¨
+	//é€’å½’å®ç°æ’å…¥æ–¹æ³•
 	private BinaryNode<T> insert(T x , BinaryNode<T> t){
 		if(t == null) {
 			return new BinaryNode<>(x ,null, null);
@@ -102,7 +102,7 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 	public void remove(T x) {
 		root = remove(x,root);
 	}
-	//Ğ§ÂÊ²¢²»¸ß£¬ÑØÊ÷½øĞĞÁ½ÌËËÑË÷ÒÔ²éÕÒºÍÉ¾³ıÓÒ×ÓÊ÷ÖĞ×îĞ¡µÄ½Úµã£¬¸Ä½ø½¨Òé£ºĞ´Ò»¸öremoveMin·½·¨
+	//æ•ˆç‡å¹¶ä¸é«˜ï¼Œæ²¿æ ‘è¿›è¡Œä¸¤è¶Ÿæœç´¢ä»¥æŸ¥æ‰¾å’Œåˆ é™¤å³å­æ ‘ä¸­æœ€å°çš„èŠ‚ç‚¹ï¼Œæ”¹è¿›å»ºè®®ï¼šå†™ä¸€ä¸ªremoveMinæ–¹æ³•
 	private BinaryNode<T> remove(T x, BinaryNode<T> t){
 		if(t == null) {
 			return t;
@@ -112,13 +112,13 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 			t.left = remove(x,t.left);
 		}else if(compareResult > 0) {
 			t.right = remove(x,t.right);
-		}else if(t.left != null && t.right != null) {//ÔªËØÆ¥Åä£¬ÇÒ×óÓÒ×ÓÊ÷¾ù²»ÎªÁã
-			//Õâ¿éÓĞ¸Ä½ø¿Õ¼ä
-			t.element = findMin(t.right).element;//ÕÒµ½ÓÒ×ÓÊ÷ÖĞ×îĞ¡µÄÔªËØ
-			t.right = remove(t.element,t.right);//É¾³ıÓÒ×ÓÊ÷ÖĞÔ­À´×îĞ¡µÄÔªËØ
+		}else if(t.left != null && t.right != null) {//å…ƒç´ åŒ¹é…ï¼Œä¸”å·¦å³å­æ ‘å‡ä¸ä¸ºé›¶
+			//è¿™å—æœ‰æ”¹è¿›ç©ºé—´
+			t.element = findMin(t.right).element;//æ‰¾åˆ°å³å­æ ‘ä¸­æœ€å°çš„å…ƒç´ 
+			t.right = remove(t.element,t.right);//åˆ é™¤å³å­æ ‘ä¸­åŸæ¥æœ€å°çš„å…ƒç´ 
 			
-		}else {//ÔªËØÆ¥Åä£¬ÇÒ×ó×ÓÊ÷ÓÒ×ÓÊ÷ÖĞÓĞÒ»¸öÎª¿Õ
-			//Èç¹û×ó×ÓÊ÷²»Îª¿Õ£¬¸³Öµ×ó×ÓÊ÷£¬·ñÔò¸³ÖµÓÒ×ÓÊ÷
+		}else {//å…ƒç´ åŒ¹é…ï¼Œä¸”å·¦å­æ ‘å³å­æ ‘ä¸­æœ‰ä¸€ä¸ªä¸ºç©º
+			//å¦‚æœå·¦å­æ ‘ä¸ä¸ºç©ºï¼Œèµ‹å€¼å·¦å­æ ‘ï¼Œå¦åˆ™èµ‹å€¼å³å­æ ‘
 			t = (t.left != null)?t.left:t.right;
 		}
 		return t;
@@ -130,7 +130,7 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 			printTree(root);
 		}
 	}
-	//ÖĞĞò±éÀú
+	//ä¸­åºéå†
 	private void printTree(BinaryNode<T> t) {
 		if(t != null) {
 			printTree(t.left);

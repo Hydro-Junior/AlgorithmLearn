@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 
 /**
- * ╣╔а╢╠Мй╣ож╤сап 
+ * Е█∙И⌠╬Х║╗Е╝·Г▌╟И≤÷Е┬≈ 
  * @author Mr.Xu
  *
  * @param <T>

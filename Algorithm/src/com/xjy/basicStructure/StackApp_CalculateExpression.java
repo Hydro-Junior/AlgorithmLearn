@@ -6,16 +6,13 @@ import java.util.regex.Pattern;
 
 import org.junit.Test;
 
-//³õ°æ
+//åˆç‰ˆ
 public class StackApp_CalculateExpression {
 	/**
-	 * µÚÒ»ÖÖ£º½«ÖĞ×º×ª»¯Îªºó×º,ÔÙ¼ÆËãºó×º±í´ïÊ½ £¨ÕâÀïÖ»¿¼ÂÇµ¥Î»Êı¼Ó¼õ£©
-	 * 
-	 * @param expr
-	 * @return
+	 * ç¬¬ä¸€ç§ï¼šå°†ä¸­ç¼€è½¬åŒ–ä¸ºåç¼€,å†è®¡ç®—åç¼€è¡¨è¾¾å¼ ï¼ˆè¿™é‡Œåªè€ƒè™‘å•ä½æ•°åŠ å‡ï¼‰
 	 */
 	public static int calculate(String infix) {
-		// ÖĞ×º×ªºó×º
+		// ä¸­ç¼€è½¬åç¼€
 		MyStack<Character> ms = new MyStack<Character>();
 		StringBuilder res = new StringBuilder();
 		for (int i = 0; i < infix.length(); i++) {
@@ -37,7 +34,7 @@ public class StackApp_CalculateExpression {
 		while (!ms.isEmpty()) {
 			res.append(ms.pop());
 		}
-		String postfix = res.toString();// ºó×º±í´ïÊ½
+		String postfix = res.toString();// åç¼€è¡¨è¾¾å¼
 		MyStack<Integer> intStack = new MyStack<>();
 		for (int i = 0; i < postfix.length(); i++) {
 			char tc = postfix.charAt(i);
@@ -56,15 +53,15 @@ public class StackApp_CalculateExpression {
 		return intStack.pop();
 	}
 /**
- * ÊäÈë±í´ïÊ½¼ÆËãµÄÉı¼¶°æ
- * (²î´í¿ØÖÆºÍÇ¶Ì×À¨ºÅÄÚµÄ¸ºÊıÔËËã»¹ÓĞËùÇ·È±)
+ * è¾“å…¥è¡¨è¾¾å¼è®¡ç®—çš„å‡çº§ç‰ˆ
+ * (å·®é”™æ§åˆ¶å’ŒåµŒå¥—æ‹¬å·å†…çš„è´Ÿæ•°è¿ç®—è¿˜æœ‰æ‰€æ¬ ç¼º)
  * @param expr
  */
 	public static void calculatePro(String expr) {
 		MyStack<String> ops = new MyStack<String>();
 		MyStack<Double> vals = new MyStack<Double>();
 		expr = expr.replaceAll("\\s+", "");
-		String regex = "(\\+|\\-|\\)|\\(|/|\\*|(sqrt)|¡Ì|\\^)|(\\d+\\.{0,1}\\d*)";
+		String regex = "(\\+|\\-|\\)|\\(|/|\\*|(sqrt)|âˆš|\\^)|(\\d+\\.{0,1}\\d*)";
 		String[] container = new String[expr.length()];
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(expr);
@@ -74,7 +71,7 @@ public class StackApp_CalculateExpression {
 		}
 		String[] postfix = new String[len];
 		int j = 0;
-		//ÏÈ×ªÎªºó×º±í´ïÊ½
+		//å…ˆè½¬ä¸ºåç¼€è¡¨è¾¾å¼
 		for (int i = 0; i < len; i++) {
 			if(container[i].equals("(")) {
 				ops.push(container[i]);
@@ -115,19 +112,19 @@ public class StackApp_CalculateExpression {
 			postfix[j] = ops.pop();
 			j++;
 		}
-		//Êä³öºó×º±í´ïÊ½
+		//è¾“å‡ºåç¼€è¡¨è¾¾å¼
 		System.out.println("the postfix form :");
 		for(int k = 0 ; k < j ; k++) {
 			System.out.print(postfix[k]+" ");
 		}
-		//¼ÆËãºó×º±í´ïÊ½
+		//è®¡ç®—åç¼€è¡¨è¾¾å¼
 		double tmp1 = 0;
 		double tmp2 = 0;
 		for(int k = 0 ; k < j; k++) {
 			if(postfix[k].matches("\\d+\\.{0,1}\\d*")){
 				vals.push(Double.parseDouble(postfix[k]));
 			}else {
-				if(postfix[k].equals("¡Ì")||postfix[k].equals("sqrt")) {
+				if(postfix[k].equals("âˆš")||postfix[k].equals("sqrt")) {
 					vals.push(Math.sqrt(vals.pop()));
 				}else if(postfix[k].equals("^")) {
 					tmp1 = vals.pop();
@@ -164,7 +161,7 @@ public class StackApp_CalculateExpression {
 
 	}
 
-	//Í¨¹ı±È½ÏÔËËã·ûÓÅÏÈ¼¶ÅĞ¶ÏÊÇ·ñÒªpop£¬ÕâÀïÎª¼òµ¥Æğ¼ûÖ»·µ»ØtrueºÍfalse£¬¼òµ¥»¯´¦ÀíÍ¬¼¶µÄÇé¿ö£¨ÒòÎªÖ»ÓĞÓÅÏÈ¼¶µÍµÄ±£ÁôÔÚÕ»ÖĞ£¬¸ßµÄ»òÏàÍ¬µÄ¶¼pop³öÈ¥£©
+	//é€šè¿‡æ¯”è¾ƒè¿ç®—ç¬¦ä¼˜å…ˆçº§åˆ¤æ–­æ˜¯å¦è¦popï¼Œè¿™é‡Œä¸ºç®€å•èµ·è§åªè¿”å›trueå’Œfalseï¼Œç®€å•åŒ–å¤„ç†åŒçº§çš„æƒ…å†µï¼ˆå› ä¸ºåªæœ‰ä¼˜å…ˆçº§ä½çš„ä¿ç•™åœ¨æ ˆä¸­ï¼Œé«˜çš„æˆ–ç›¸åŒçš„éƒ½popå‡ºå»ï¼‰
 	public static boolean shouldPop(String bef, String aft) {
 		if (bef.equals("(")) {
 			return false;
@@ -174,14 +171,14 @@ public class StackApp_CalculateExpression {
 			}else {
 				return false;
 			}
-		} else if (bef.matches("(sqrt)|¡Ì|\\^")) {
+		} else if (bef.matches("(sqrt)|âˆš|\\^")) {
 			if(aft.equals("(")){
 				return false;
 			}else {
 				return true;
 			}
 		} else if(bef.equals("*") || bef.equals("/")) {
-			if(aft.matches("\\(|/|\\*|(sqrt)|¡Ì|\\^")) {
+			if(aft.matches("\\(|/|\\*|(sqrt)|âˆš|\\^")) {
 				return false;
 			}else {
 				return true;

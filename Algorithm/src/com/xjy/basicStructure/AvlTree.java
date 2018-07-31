@@ -1,7 +1,7 @@
 package com.xjy.basicStructure;
 
 public class AvlTree <T extends Comparable<? super T>>{
-	private static final int ALLOWED_IMBALANCE = 1; //×î´óÔÊĞí¸ß¶È²îÎª1
+	private static final int ALLOWED_IMBALANCE = 1; //æœ€å¤§å…è®¸é«˜åº¦å·®ä¸º1
 	private AvlNode<T> root;
 	private  static class AvlNode<T>{
 		T element;
@@ -24,73 +24,73 @@ public class AvlTree <T extends Comparable<? super T>>{
 	public AvlTree(){
 		root = null;
 	}
-	//×ó×óĞÍĞı×ª
+	//å·¦å·¦å‹æ—‹è½¬
 	private AvlNode<T> rotateWithLeftChild(AvlNode<T> k2){
 		
-		//1. Ñ¡³ök2½Úµã£¨¾ÉµÄ¸¸½Úµã£©µÄ×óº¢×Ó£¨ĞÂµÄ¸¸½Úµã£©
+		//1. é€‰å‡ºk2èŠ‚ç‚¹ï¼ˆæ—§çš„çˆ¶èŠ‚ç‚¹ï¼‰çš„å·¦å­©å­ï¼ˆæ–°çš„çˆ¶èŠ‚ç‚¹ï¼‰
 		AvlNode<T> k1 = k2.left;
-		//2. °ÑĞÂ¸¸½ÚµãµÄÓÒº¢×Ó´«¸ø¾É¸¸½ÚµãµÄ×óº¢×Ó
+		//2. æŠŠæ–°çˆ¶èŠ‚ç‚¹çš„å³å­©å­ä¼ ç»™æ—§çˆ¶èŠ‚ç‚¹çš„å·¦å­©å­
 		k2.left = k1.right;
-		//3. °Ñ¾É¸¸½Úµã×÷ÎªĞÂ¸¸½ÚµãµÄÓÒº¢×Ó
+		//3. æŠŠæ—§çˆ¶èŠ‚ç‚¹ä½œä¸ºæ–°çˆ¶èŠ‚ç‚¹çš„å³å­©å­
 		k1.right = k2;
-		//µ÷Õû¸ß¶È
+		//è°ƒæ•´é«˜åº¦
 		k2.height = Math.max(height(k2.left), height(k2.right))+1;
 		k1.height = Math.max(height(k1.left), k2.height)+1;
 		return k1;
 	}
-	//ÓÒÓÒĞÍĞı×ª
+	//å³å³å‹æ—‹è½¬
 		private AvlNode<T> rotateWithRightChild(AvlNode<T> k2){
 			
-			//1. Ñ¡³ök2½Úµã£¨¾ÉµÄ¸¸½Úµã£©µÄÓÒº¢×Ó£¨ĞÂµÄ¸¸½Úµã£©
+			//1. é€‰å‡ºk2èŠ‚ç‚¹ï¼ˆæ—§çš„çˆ¶èŠ‚ç‚¹ï¼‰çš„å³å­©å­ï¼ˆæ–°çš„çˆ¶èŠ‚ç‚¹ï¼‰
 			AvlNode<T> k1 = k2.right;
-			//2. °ÑĞÂ¸¸½ÚµãµÄ×óº¢×Ó´«¸ø¾É¸¸½ÚµãµÄÓÒº¢×Ó
+			//2. æŠŠæ–°çˆ¶èŠ‚ç‚¹çš„å·¦å­©å­ä¼ ç»™æ—§çˆ¶èŠ‚ç‚¹çš„å³å­©å­
 			k2.right = k1.left;
-			//3. °Ñ¾É¸¸½Úµã×÷ÎªĞÂ¸¸½ÚµãµÄ×óº¢×Ó
+			//3. æŠŠæ—§çˆ¶èŠ‚ç‚¹ä½œä¸ºæ–°çˆ¶èŠ‚ç‚¹çš„å·¦å­©å­
 			k1.left = k2;
-			//µ÷Õû¸ß¶È
+			//è°ƒæ•´é«˜åº¦
 			k2.height = Math.max(height(k2.left), height(k2.right))+1;
 			k1.height = Math.max(k2.height,height(k1.right))+1;
 			return k1;
 		}
-	//×óÓÒĞÍĞı×ª
+	//å·¦å³å‹æ—‹è½¬
 	private AvlNode<T> doubleWithLeftChild(AvlNode<T> k3){
 		k3.left = rotateWithRightChild(k3.left);
 		return rotateWithLeftChild(k3);
 	}
-	//ÓÒ×óĞÍĞı×ª
+	//å³å·¦å‹æ—‹è½¬
 	private AvlNode<T> doubleWithRightChild(AvlNode<T> k3){
 		k3.right = rotateWithLeftChild(k3.right);
 		return rotateWithRightChild(k3);
 	}
-	//×î¹Ø¼ü£ºÆ½ºâ²Ù×÷
+	//æœ€å…³é”®ï¼šå¹³è¡¡æ“ä½œ
 	private AvlNode<T> balance(AvlNode<T> t){
 		if(t == null) {
 			return t;
 		}
-		//×ó±ß¸ßµÄÇé¿ö
+		//å·¦è¾¹é«˜çš„æƒ…å†µ
 		if(height(t.left)-height(t.right) > ALLOWED_IMBALANCE) {
-			//×ó×óĞÍ(Í¬Ê±¿¼ÂÇÒ»ÑùÉîµÄÇéĞÎ)
+			//å·¦å·¦å‹(åŒæ—¶è€ƒè™‘ä¸€æ ·æ·±çš„æƒ…å½¢)
 			if(height(t.left.left) >= height(t.left.right)) {
 				t = rotateWithLeftChild(t);
 			}else {
-			//×óÓÒĞÍ
+			//å·¦å³å‹
 				t = doubleWithLeftChild(t);
 			}
 		}
-		//ÓÒ±ß¸ßµÄÇé¿ö
+		//å³è¾¹é«˜çš„æƒ…å†µ
 		else if(height(t.right)-height(t.left) > ALLOWED_IMBALANCE){
-			//ÓÒÓÒĞÍ(Í¬Ê±¿¼ÂÇÒ»ÑùÉîµÄÇéĞÎ)
+			//å³å³å‹(åŒæ—¶è€ƒè™‘ä¸€æ ·æ·±çš„æƒ…å½¢)
 			if(height(t.right.right) >= height(t.right.left)) {
 				t = rotateWithRightChild(t);
 			}else {
-			//ÓÒ×óĞÍ
+			//å³å·¦å‹
 				t = doubleWithRightChild(t);
 			}
 		}
 		t.height = Math.max(height(t.left), height(t.right)) + 1;
 		return t;
 	}
-	//²åÈë½Úµã
+	//æ’å…¥èŠ‚ç‚¹
 	private AvlNode<T> insert(T x,AvlNode<T> t){
 		if(t == null) {
 			return new AvlNode<>(x,null,null);
@@ -132,7 +132,7 @@ public class AvlTree <T extends Comparable<? super T>>{
 		return findMax(root).element;
 	}
 	public AvlNode<T> findMax(AvlNode<T> t){
-		//·Çµİ¹éÊµÏÖ
+		//éé€’å½’å®ç°
 		if(t != null)
 			while(t.right != null) {
 				t = t.right;
@@ -142,7 +142,7 @@ public class AvlTree <T extends Comparable<? super T>>{
 	public void insert(T x) {
 		root = insert(x,root);
 	}
-	//É¾³ı½Úµã
+	//åˆ é™¤èŠ‚ç‚¹
 	private AvlNode<T> remove(T x , AvlNode<T> t){
 		if(t == null) {
 			return t;
