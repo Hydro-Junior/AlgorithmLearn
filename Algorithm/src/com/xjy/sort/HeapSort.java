@@ -1,6 +1,6 @@
 package com.xjy.sort;
 /**
- * 堆排序，升序排列
+ * 堆排序，升序排列 reference : Algorithm 4th
  * @author Mr.Xu
  *
  */
