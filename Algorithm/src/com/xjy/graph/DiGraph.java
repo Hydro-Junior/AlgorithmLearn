@@ -23,7 +23,7 @@ public class DiGraph {
 		adj[v].add(w);
 		E++;
 	}
-	public Iterable<Integer> adj(int v){
+	public ArrayList<Integer> adj(int v){
 		return adj[v];
 	}
 	//反转有向图(新建图，添加边即可)

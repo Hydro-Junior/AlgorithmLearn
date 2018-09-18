@@ -36,7 +36,7 @@ public class DirectedCycle {
 		}
 		onStack[v] = false;//取消栈标记
 	}
-	private boolean hasCycle() {
+	public boolean hasCycle() {
 		return cycle != null;
 	}
 }

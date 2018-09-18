@@ -6,10 +6,10 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MyIndexMinPQ<Key extends Comparable<? super Key>> {
-	private int n;
-	private int[] pq;
-	private int[] qp;
-	private Key[] keys;
+	private int n;//当前元素个数
+	private int[] pq;//记录索引（根据对应元素的大小排好优先队列）
+	private int[] qp;//记录索引的索引（当你要调节元素对应索引的位置，首先要得到它当前的位置）
+	private Key[] keys;//记录索引对应的元素
 
 	public MyIndexMinPQ(int maxN) {
 		n = 0;

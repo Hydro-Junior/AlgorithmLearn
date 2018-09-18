@@ -19,6 +19,10 @@ public class MathUtil {
 		int r = p % q;
 		return gcd(q , r);
 	}
+	//最小公倍数
+	public static int lcm(int m, int n) {
+		return m/gcd(m,n)*n;
+	}
 	//判断一个数是否为素数
 	public static boolean isPrime(int N) {
 		if(N < 2) {return false;}
