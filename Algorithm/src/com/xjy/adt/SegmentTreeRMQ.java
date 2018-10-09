@@ -7,10 +7,10 @@ import java.util.Random;
  * @author Mr.Xu
  *
  */
-public class SegmentTree_RMQ {
+public class SegmentTreeRMQ {
 	private static int[] dat;
 	private int n;
-	public SegmentTree_RMQ(int n_){
+	public SegmentTreeRMQ(int n_){
 		if(n < 0) {throw new IllegalArgumentException();}
 		n = 1;
 		while(n < n_) {
@@ -56,7 +56,7 @@ public class SegmentTree_RMQ {
 			test[i] = rd.nextInt(100);
 		}
 		//建立线段树
-		SegmentTree_RMQ rmq = new SegmentTree_RMQ(10000);
+		SegmentTreeRMQ rmq = new SegmentTreeRMQ(10000);
 		for(int i = 0 ; i < 10000; i++) {
 			rmq.update(i, test[i]);
 		}

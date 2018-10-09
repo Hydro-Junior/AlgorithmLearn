@@ -1,5 +1,7 @@
 package com.xjy.adt;
-
+/**
+ * 利用用栈自制计算器
+ */
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,7 +9,7 @@ import java.util.regex.Pattern;
 import org.junit.Test;
 
 //初版
-public class StackApp_CalculateExpression {
+public class StackAppCalculateExpression {
 	/**
 	 * 第一种：将中缀转化为后缀,再计算后缀表达式 （这里只考虑单位数加减）
 	 */

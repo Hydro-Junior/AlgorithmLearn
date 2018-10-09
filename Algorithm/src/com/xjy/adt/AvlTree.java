@@ -3,7 +3,7 @@ package com.xjy.adt;
 public class AvlTree <T extends Comparable<? super T>>{
 	private static final int ALLOWED_IMBALANCE = 1; //最大允许高度差为1
 	private AvlNode<T> root;
-	private  static class AvlNode<T>{
+	private static class AvlNode<T>{
 		T element;
 		AvlNode<T> left;
 		AvlNode<T> right;

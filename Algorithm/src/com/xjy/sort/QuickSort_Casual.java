@@ -1,8 +1,10 @@
-package com.xjy.sort;
+ package com.xjy.sort;
 
 import java.util.Scanner;
 
-//简单化的快排，只针对整数，不是很精细
+//简单化的快排，只针对整数，不是很精细，相对于标准版，它应对不同输入的表现不是很稳定。
+//1.扫描时遇到与pivot相等的元素并没有停下来，这会导致在有大量相同元素时的表现不好。
+//2.面对已经排好序的序列，它的复杂度将达到O(n*2)
 public class QuickSort_Casual {
 	public static void quickSort(int[] a, int lo, int hi) {
 		if (lo >= hi) {
@@ -12,6 +14,7 @@ public class QuickSort_Casual {
 		int j = hi;
 		int pivot = a[lo];
 		while (i < j) {
+			//这里肯定要先移动j,因为如果先移动i,i会停留在大元素，而之后j会过不去（i<j）,最后和lo交换的是j，这会导致程序出错。
 			while (i < j && a[j] >= pivot) {
 				j--;
 			}

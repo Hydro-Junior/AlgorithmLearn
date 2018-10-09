@@ -132,7 +132,6 @@ class EdgeWeightDiCycle{
                     f = edgeTo[f.from()];
                 }
                 cycle.push(f);
-
                 return;
 			}
 		}
