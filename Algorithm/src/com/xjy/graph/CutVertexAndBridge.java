@@ -80,7 +80,8 @@ public class CutVertexAndBridge {
 						listE.add(new int[] {v,w});//约定把父节点放在前一个
 					}
 				}
-			}else if(parent[v] != w && dfn[w] < dfn[v]){//w被访问过且w不是v的直接父节点，用反向边更新low[v]值
+			}else if(parent[v] != w && dfn[w] < dfn[v]){
+				//w被访问过且w不是v的直接父节点，用反向边更新low[v]值(因为如果w是v的父亲，那么这条无向边就被误认为是环了)
 				low[v] = Math.min(low[v], dfn[w]);
 			}
 			

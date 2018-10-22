@@ -17,7 +17,7 @@ public class CycleDetect_DFS {
 		for(int w: G.adj(v)){
 			if(!marked[w]) {
 				dfs(G,w,v);
-			}else if(w != u) {
+			}else if(w != u) { //这个节点被访问过且不是它爹
 				hasCycle = true;
 			}
 		}

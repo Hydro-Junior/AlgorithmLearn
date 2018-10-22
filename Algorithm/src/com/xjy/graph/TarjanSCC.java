@@ -6,6 +6,7 @@ import java.util.Stack;
 /**
  * 利用Tarjan算法求解图的强联通分量，核心是lowLink数组和栈
  * 仔细理解后，其实tarjan算法比kosaraju更为直接，dfn标记深搜次序，在一次深搜中更新low值，并通过栈来记录,dfn[i]=low[i]（未更新low）的属于一次弹出的终点
+ * 脑中画面描述：一直沿着可行的道路走，当走到已走过的站，你会收获一堆礼物，于是你开始走回头路，并把礼物回馈给走过的路。
  * @author Mr.Xu
  * Reference to： https://www.youtube.com/watch?v=TyWtx7q2D7Y（视频中的图解很到位），
  * https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm
@@ -46,12 +47,13 @@ public class TarjanSCC {
 		for(int w : G.adj(v)) {
 			if(!marked[w]) {
 				dfs(G,w);
-				low[v] = Math.min(low[w], low[v]);//递归返回时更新值（普通相邻点访问结束后返回更新low）
+				//下面这句话写在dfs递归语句的后面，可以生动地理解为回来的路上要做的操作！
+				low[v] = Math.min(low[w], low[v]);//（传递礼物）递归返回时更新值（普通相邻点访问结束后返回更新low）<v通过树边到达w>
 			}else if(onStack[w]) {//存在有向环
-				low[v] = Math.min(dfn[w], low[v]);//整个算法的精髓（已被访问且在栈中的顶点返回更新low）
+				low[v] = Math.min(dfn[w], low[v]);//（收获了礼物）整个算法的精髓（已被访问且在栈中的顶点返回更新low）<v通过返祖边或横叉边到达w>
 			}
 		}
-		//判断v是否为此次搜索树的根
+		//判断v是否为此次搜索树的根（搜完之后要做的操作：拿出此时栈中的强联通分量）
 		if(low[v] == dfn[v]) {
 			int w ;
 			do {

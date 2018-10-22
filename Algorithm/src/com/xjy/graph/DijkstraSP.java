@@ -5,7 +5,7 @@ package com.xjy.graph;
 
 import java.util.Stack;
 
-import com.xjy.adt.MyIndexMinPQ;
+import com.xjy.basic.MyIndexMinPQ;
 
 /**
  * @Description 
