@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 
 /**
- * 单链表实现队列 
+ * 单向链表实现队列
  * @author Mr.Xu
  *
  * @param <T>

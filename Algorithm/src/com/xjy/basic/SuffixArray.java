@@ -69,5 +69,6 @@ public class SuffixArray {
     //测试 LRS
     public static void main(String[] args) {
         System.out.println(LRS("to be or not to be"));
+        System.out.println(LRS("555555555555"));
     }
 }

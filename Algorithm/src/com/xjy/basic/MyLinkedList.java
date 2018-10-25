@@ -4,7 +4,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
- * 双链表实现MyLinkedList
+ * 双向链表实现MyLinkedList
  * @author Mr.Xu
  *
  * @param <T>
