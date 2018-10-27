@@ -71,6 +71,36 @@ public class KMP {
         KMP kmp = new KMP("abcdabcy");
         String txt = "abcxabcdabcdabcy";
         System.out.println(kmp.match(txt));
+        System.out.println(searchWithDFA("abcdabcy","abcxabcdabcdabcy"));
+    }
+
+    /**
+     * 补充算法4上的思想,这个思路与公共前后缀基本无关，只须考虑状态转移，代码量更少，但是更为抽象（关键在于理解重启状态X）,较难理解其正确性
+     * @param pat
+     * @param txt
+     * @return
+     */
+    public static int searchWithDFA(String pat,String txt){
+        //构建DFA(有限状态自动机)
+        int R = 256;
+        int M = pat.length();
+        int N = txt.length();
+        int[][] dfa = new int[R][M]; //前者是匹配字母，后者是状态，状态通过字母进行转移
+        dfa[pat.charAt(0)][0] = 1;
+        for(int X=0, j=1; j < M; j++){
+            for(int c = 0; c < R; c++){
+                dfa[c][j] = dfa[c][X]; //失败情况下的状态转移
+            }
+            dfa[pat.charAt(j)][j] = j + 1; //匹配情况下的状态转移
+            X = dfa[pat.charAt(j)][X]; //重启状态更新
+        }
+        //查找
+        int i,j;
+        for( i = 0,j = 0; i<N && j < M; i++){
+            j = dfa[txt.charAt(i)][j];//不断作状态转移即可
+        }
+        if(j == M) {return i - M;} //第一个匹配找到，返回起始坐标
+        else return N;//未找到
     }
 
 }
