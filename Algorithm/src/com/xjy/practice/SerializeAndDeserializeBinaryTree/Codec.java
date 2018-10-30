@@ -3,7 +3,7 @@ package com.xjy.practice.SerializeAndDeserializeBinaryTree;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 15:30 2018/10/22
- * @Description:
+ * @Description: LeetCode297 按前序遍历更为快捷方便
  */
 
 import java.util.LinkedList;
