@@ -20,7 +20,7 @@ import com.xjy.basic.MyIndexMinPQ;
 public class DijkstraSP {
 	private DiEdge[] edgeTo;
 	private double[] distTo;
-	private MyIndexMinPQ<Double> pq;//采用索引优先队列，关联顶点编号与距离
+	private MyIndexMinPQ<Double> pq;//采用索引优先队列，关联顶点编号与距离,使用jdk的PriorityQueue也可以，只需建立Pair对象（顶点和距离对）并实现Comparator策略接口即可
 	
 	public DijkstraSP(EdgeWeightDigraph G ,int s) {
 		edgeTo = new DiEdge[G.V()];
@@ -44,9 +44,8 @@ public class DijkstraSP {
 				distTo[w] = distTo[v] + e.weight();
 				edgeTo[w] = e;
 				//两种情况：1.w已存在于优先队列，更新distTo[w] 2.w不存在，添加到优先队列
-				if(pq.contains(w))pq.changeKey(w, distTo[w]);
+				if(pq.contains(w))pq.changeKey(w, distTo[w]); //当使用jdk的PriorityQueue，没必要写这句话，如果取出的最小值不是最短距离，丢弃即可
 				else pq.insert(w, distTo[w]);
-				
 			}
 		}
 	}
