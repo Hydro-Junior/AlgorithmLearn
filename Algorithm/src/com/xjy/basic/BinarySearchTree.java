@@ -113,7 +113,7 @@ public class BinarySearchTree <T extends Comparable<? super T>>{
 		}else if(compareResult > 0) {
 			t.right = remove(x,t.right);
 		}else if(t.left != null && t.right != null) {//元素匹配，且左右子树均不为零
-			//这块有改进空间
+			//这块有改进空间，可以写个removeMin，少走一趟
 			t.element = findMin(t.right).element;//找到右子树中最小的元素
 			t.right = remove(t.element,t.right);//删除右子树中原来最小的元素
 			

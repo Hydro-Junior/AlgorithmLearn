@@ -21,6 +21,7 @@ public class MathUtil {
 		int r = p % q;
 		return gcd(q , r);
 	}
+	//扩展欧几里得算法(给定整数a,b，一定存在整数对(x,y),使得ax + by = gcd(a,b)= d成立)，详见expand包
 
 	//最小公倍数
 	public static int lcm(int m, int n) {
@@ -108,7 +109,34 @@ public class MathUtil {
 		for(int i = 0 ; i < isPrime.length; i++){
 			if(isPrime[i]) res.add(i+a);
 		}
-		return  res;
+		return res;
+	}
+
+	/**
+	 * 快速幂，求x^n
+	 * 核心思想：n = 2^k1 + 2^k2 + 2^k3 +...... ,x^n = ((x^2)^2)^2...+......
+	 * @param x
+	 * @param n
+	 * @return x^n
+	 */
+	public static long pow(long x,long n){
+		long res = 1;
+		while(n > 0){
+			if((n & 1) > 0) res = res * x;
+			x = x * x;
+			n >>= 1;
+		}
+		return res;
+	}
+	//求x^n % mod,防止结果过大
+	public static long mod_pow(long x, long n,long mod){
+		long res = 1;
+		while(n > 0){
+			if((n & 1)>0) res = res * x % mod;
+			x = x * x % mod;
+			n >>= 1;
+		}
+		return res;
 	}
 	//牛顿迭代法求开方： X(n+1) = X(n) - f(X(n))/f'(X(n)) --> X(n+1) = X(n)-(X(n)*X(n)-k)/2X(n)
 	//--> X(n+1) = (X(n)*X(n)+k)/2Xn
@@ -125,6 +153,7 @@ public class MathUtil {
 	@Test
 	public void test() {
 		System.out.println(sqrt(6.25));
+		System.out.println(pow(2 , 12));
 	}
 	
 	

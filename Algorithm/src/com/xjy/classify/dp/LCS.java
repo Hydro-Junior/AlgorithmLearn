@@ -27,8 +27,6 @@ public class LCS {
 	private static char[] y;
 	/**
 	 * 找到最长公共子序列的长度并作好标记
-	 * @param x
-	 * @param y
 	 */
 	public static void findLCS() {
 		int m = x.length - 1;
