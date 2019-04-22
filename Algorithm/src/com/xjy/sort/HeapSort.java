@@ -17,7 +17,6 @@ public class HeapSort {
 			exch(a,1,n--);
 			sink(a,1,n);
 		}
-		
 	}
 	
 	
